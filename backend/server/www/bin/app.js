@@ -6,6 +6,9 @@ const path = require('path');
 const helmet = require('helmet');
 
 
+const database = require('../../../database/index.js');
+
+
 const app = express();
 
 
