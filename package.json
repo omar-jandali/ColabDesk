@@ -1,0 +1,19 @@
+{
+  "name": "colabdesk",
+  "version": "1.0.0",
+  "description": "Colab Desk is a new type of app that finds spaces that freelance developer and remote workers can find and work out of",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omar-jandali/ColabDesk.git"
+  },
+  "author": "Omar Jandali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omar-jandali/ColabDesk/issues"
+  },
+  "homepage": "https://github.com/omar-jandali/ColabDesk#readme"
+}
