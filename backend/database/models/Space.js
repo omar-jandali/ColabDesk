@@ -1,5 +1,8 @@
 const seq = require('sequelize');
 const { Postgres } = require('../../index');
+const { Images } = require('./Images');
+const { Reservation } = require('./Reservations');
+const { SpaceAmenities } = require('./SpaceAmenities');
 
 
 const Space = Postgres.define(
@@ -24,6 +27,11 @@ const Space = Postgres.define(
         updatedAt: seq.DATE
     }
 )
+
+
+Space.hasMany(Images, {as: 'imagesId'})
+SPace.hasMany(Reservation, {as: 'reservationId'})
+Space.hasMany(SpaceAmenities, {as: 'spaceAmenitiesId'})
 
 
 postgres.sync()

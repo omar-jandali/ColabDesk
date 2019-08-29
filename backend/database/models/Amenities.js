@@ -1,5 +1,6 @@
 const seq = require('sequelize');
 const { Postgres } = require('../../index');
+const { SpaceAmenities } = require('./SpaceAmenities');
 
 
 const Amenities = Postgres.define(
@@ -15,6 +16,9 @@ const Amenities = Postgres.define(
         updatedAt: seq.DATE
     }
 )
+
+
+Amenities.hasMany(SpaceAmenities, {as: 'spaceAmenitiesId'})
 
 
 postgres.sync()

@@ -1,5 +1,6 @@
 const seq = require('sequelize');
 const { postgres } = require('../../index');
+const { User } = require('./User');
 
 
 const Detail = postgres.define(
@@ -31,6 +32,9 @@ const Detail = postgres.define(
         updatedAt: seq.DATE
     }
 );
+
+
+Detail.belongsTo(User)
 
 
 postgres.syn()

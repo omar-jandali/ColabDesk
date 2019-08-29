@@ -1,5 +1,7 @@
 const seq = require('sequelize');
 const { Postgres } = require('../../index');
+const { Space } = require('./Space');
+const { Images } = require('./Images')
 
 
 const Office = Postgres.define(
@@ -34,6 +36,10 @@ const Office = Postgres.define(
         updatedAt: seq.DATE
     }
 )
+
+
+Office.hasMany(Space, {as: 'spaceId'})
+Office.hasMany(Images, {as: 'imagesId'})
 
 
 postgres.sync()
