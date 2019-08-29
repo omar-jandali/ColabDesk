@@ -1,5 +1,5 @@
 const seq = require('sequelize');
-const { postgres } = require('../../index');
+const { postgres } = require('../index');
 const { User } = require('./User');
 
 
@@ -11,23 +11,23 @@ const Profile = postgres.define(
               validate: {isAlphanumber: true, allowNull: false}
         },
         company: {type: seq.STRING, require: true, 
-                  validate: {isAlphanumeric: true, allowNull: false}
+                  validate: {isAlphanumeric: true, allowNull: true}
         },
         title: {type: seq.STRING, require: true, 
                 validate: {isAlphanumeric: true, allowNull: false}
             
         },
-        freelance: {type: seq.BOOLEAN, require: true, defaultValue: 0,
-                    validate: {isIn: [[0, 1]], isInt: true, allowNull: false}
+        freelance: {type: seq.BOOLEAN, require: true, defaultValue: false,
+                    validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
         },
-        remote: {type: seq.BOOLEAN, require: true, defaultValue: 0,
-                 validate: {isIn: [[0, 1]], isInt: true, allowNull: false}
+        remote: {type: seq.BOOLEAN, require: true, defaultValue: false,
+                 validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
         },
         linkedin: {type: seq.STRING, required: true, 
-                   validate: {isUrl: true, allowNull: false}
+                   validate: {isUrl: true, allowNull: true}
         },
         website: {type: seq.STRING, required: true, 
-                  validate: {isUrl: true, allowNull: false}
+                  validate: {isUrl: true, allowNull: true}
         },
     },
     {
@@ -40,7 +40,7 @@ const Profile = postgres.define(
 Profile.belongsTo(User);
 
 
-postgres.syn()
+postgres.sync()
     .then(() => {
         console.log('Profile table is not connected and synced');
     })

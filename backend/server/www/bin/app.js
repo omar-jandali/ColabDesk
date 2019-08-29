@@ -7,6 +7,15 @@ const helmet = require('helmet');
 
 
 const database = require('../../../database/index.js');
+const User = require('../../../database/models/User');
+const Profile = require('../../../database/models/Profile');
+const Detail = require('../../../database/models/Detail');
+const Office = require('../../../database/models/Office');
+const Space = require('../../../database/models/Space');
+const Images = require('../../../database/models/Images');
+const Amenities = require('../../../database/models/Amenities');
+const SpaceAmenities = require('../../../database/models/SpaceAmenities');
+const Reservation = require('../../../database/models/Reservation');
 
 
 const app = express();

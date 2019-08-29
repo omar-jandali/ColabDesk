@@ -1,14 +1,14 @@
 const seq = require('sequelize');
-const { Postgres } = require('../../index');
+const { postgres } = require('../index');
 const { SpaceAmenities } = require('./SpaceAmenities');
 
 
-const Amenities = Postgres.define(
+const Amenities = postgres.define(
     'amenities',
     {
         id: {type: seq.INTEGER, primaryKey: true, autoincrement: true},
         item: {type: seq.STRING, require: true, 
-               validate: {isAlpha: true, notNull: false}
+               validate: {isAlpha: true, allowNull: false}
         }
     },
     {

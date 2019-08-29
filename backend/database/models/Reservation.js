@@ -1,16 +1,16 @@
 const seq = require('sequelize');
-const { Postgres } = require('../../index');
+const { postgres } = require('../index');
 
 
-const Reservation = Postgres.define(
+const Reservation = postgres.define(
     'reservation',
     {
         id: {type: seq.INTEGER, primaryKey: true, autoincrement: true},
         start: {type: seq.DATE, required: true, 
-                validate: {isDate: true, notNull: true}
+                validate: {isDate: true, allowNull: false}
         },
         end: {type: seq.DATE, required: true, 
-              validate: {isDate: true, notNull: true}
+              validate: {isDate: true, allowNull: false}
         },
         amount: {type: seq.FLOAT(9, 2), require: true, 
                  validate: {isFloat: true, allowNull: false}

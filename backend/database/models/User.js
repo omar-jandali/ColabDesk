@@ -1,5 +1,5 @@
 const seq = require('sequelize');
-const { postgres } = require('../../index');
+const { postgres } = require('../index');
 
 
 const User = postgres.define(
@@ -13,7 +13,7 @@ const User = postgres.define(
                   validate: {allowNull: false, len: [8, 18]}          
         },
         email: {type: seq.STRING, unique: true, require: true, 
-               validate: {isEmail: true, sllowNull: false}
+               validate: {isEmail: true, allowNull: false}
         },
         first_name: {type: seq.STRING, require: true,
                     validate: {isAlpha: true, allowNull: false, len: [8,16]}

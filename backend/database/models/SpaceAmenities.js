@@ -1,14 +1,14 @@
 const seq = require('sequelize');
-const { Postgres } = require('../../index');
+const { postgres } = require('../index');
 
 
-const SpaceAmenities = Postgres.define(
+const SpaceAmenities = postgres.define(
     'space_amenities',
     {
         id: {type: seq.INTEGER, primaryKey: true, autoincrement: true},
     },
     {
-        createAt: seq.DATE,
+        createdAt: seq.DATE,
         updatedAt: seq.DATE
     }
 )

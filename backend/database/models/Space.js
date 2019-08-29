@@ -1,11 +1,11 @@
 const seq = require('sequelize');
-const { Postgres } = require('../../index');
+const { postgres } = require('../index');
 const { Images } = require('./Images');
-const { Reservation } = require('./Reservations');
+const { Reservation } = require('./Reservation');
 const { SpaceAmenities } = require('./SpaceAmenities');
 
 
-const Space = Postgres.define(
+const Space = postgres.define(
     'space',
     {
         id: {type: seq.INTEGER, primaryKey: true, autoincrement: true},
@@ -18,19 +18,19 @@ const Space = Postgres.define(
         floor: {type: seq.INTEGER, require: true, 
                 validate: {isNumeric: true, allowNull: false}
         },
-        available: {type: seq.BOOLEAN, require: true, defaultValue: 1,
-                    validate: {isIn: [[0, 1]], isInt: true, allowNull: false}
+        available: {type: seq.BOOLEAN, require: true, defaultValue: false,
+                    validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
         }
     },
     {
-        createAt: seq.DATE,
+        createdAt: seq.DATE,
         updatedAt: seq.DATE
     }
 )
 
 
 Space.hasMany(Images, {as: 'imagesId'})
-SPace.hasMany(Reservation, {as: 'reservationId'})
+Space.hasMany(Reservation, {as: 'reservationId'})
 Space.hasMany(SpaceAmenities, {as: 'spaceAmenitiesId'})
 
 

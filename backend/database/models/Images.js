@@ -1,8 +1,8 @@
 const seq = require('sequelize');
-const { Postgres } = require('../../index');
+const { postgres } = require('../index');
 
 
-const Images = Postgres.define(
+const Images = postgres.define(
     'images',
     {
         id: {type: seq.INTEGER, primaryKey: true, autoincrement: true},
