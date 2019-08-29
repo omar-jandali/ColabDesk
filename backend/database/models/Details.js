@@ -35,10 +35,10 @@ const Detail = postgres.define(
 
 postgres.syn()
     .then(() => {
-        console.log('Profile table is not connected and synced');
+        console.log('Detail table is not connected and synced');
     })
     .catch((err) => {
-        console.log('Error syncing the Profile table: ' + JSON.stringify(err));
+        console.log('Error syncing the Detail table: ' + JSON.stringify(err));
     })
 
 
