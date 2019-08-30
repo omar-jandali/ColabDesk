@@ -6,7 +6,7 @@ const seq = require("sequelize")
 require('dotenv').config();
 
 
-const databaseConnection = new seq("colabdesk", "masteradmin", "Canyon286038", {
+const databaseConnection = new seq("colabify", "masteradmin", "Canyon286038", {
   "host":"localhost",
   "dialect":"postgres",
 })

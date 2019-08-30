@@ -26,8 +26,8 @@ const Detail = postgres.define(
                validate: {isAlpha: true, allowNull: false}
             
         },
-        state: {type: seq.STRING, require: true, validate: 
-                {isIn: stateCodes, isAlpha: true, allowNull: false}
+        state: {type: seq.STRING, require: true, 
+                validate: {isIn: stateCodes, isAlpha: true, allowNull: false}
         },
         country: {type: seq.STRING, require: true, 
                   validate: {isIn: [['United States']], isAlpha: true, allowNull: false}

@@ -2,6 +2,9 @@ const seq = require('sequelize');
 const { postgres } = require('../index');
 
 
+const permissions = [['Admin', 'Staff', 'User']];
+
+
 const User = postgres.define(
     "user",
     {
@@ -20,7 +23,16 @@ const User = postgres.define(
         },
         last_name: {type: seq.STRING, require: true,
                     validate: {isAlpha: true, allowNull: false, len: [8,16]}
-        }
+        },
+        permission: {type: seq.STRING, require: true, 
+               validate: {isAlpha: true, isIn: permissions, allowNull: false}
+        },
+        renter: {type: seq.BOOLEAN, require: true, defaultValue: false,
+                    validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
+        },
+        rentee: {type: seq.BOOLEAN, require: true, defaultValue: false,
+                    validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
+        },
     },
     {
         createdAt:  seq.DATE,

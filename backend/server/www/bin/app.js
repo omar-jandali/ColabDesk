@@ -18,6 +18,9 @@ const SpaceAmenities = require('../../../database/models/SpaceAmenities');
 const Reservation = require('../../../database/models/Reservation');
 
 
+const router = require('../../Router/Router')
+
+
 const app = express();
 
 
@@ -25,6 +28,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
+
+
+app.use('/api', router)
 
 
 module.exports = app;
