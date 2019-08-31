@@ -1,9 +1,14 @@
 const router = require('express').Router();
-const controller = require('../Controllers/UserController')
+const userController = require('../Controllers/UserController')
 
 
 router.route('/user')
-    .get(controller.get)
+    .post(userController.post)
+
+router.route('/user/:id')
+    .get(userController.get)
+
+
 
 
 module.exports = router;

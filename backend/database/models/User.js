@@ -8,30 +8,30 @@ const permissions = [['Admin', 'Staff', 'User']];
 const User = postgres.define(
     "user",
     {
-        id: {type: seq.INTEGER, primaryKey: true, autoincremet: true},
+        id: {type: seq.INTEGER, primaryKey: true, autoIncrement: true},
         username: {type: seq.STRING, unique: true, require: true, 
-                validate: {isAlphanumeric: true, allowNull: false, len:  [8,16]}
+                validate: {isAlphanumeric: true, len:  [8,16]}
         },
         password: {type: seq.STRING, require: true,
-                  validate: {allowNull: false, len: [8, 18]}          
+                  validate: {len: [8, 18]}          
         },
         email: {type: seq.STRING, unique: true, require: true, 
-               validate: {isEmail: true, allowNull: false}
+               validate: {isEmail: true}
         },
         first_name: {type: seq.STRING, require: true,
-                    validate: {isAlpha: true, allowNull: false, len: [8,16]}
+                    validate: {isAlpha: true}
         },
         last_name: {type: seq.STRING, require: true,
-                    validate: {isAlpha: true, allowNull: false, len: [8,16]}
+                    validate: {isAlpha: true,}
         },
         permission: {type: seq.STRING, require: true, 
-               validate: {isAlpha: true, isIn: permissions, allowNull: false}
+               validate: {isAlpha: true, isIn: permissions}
         },
         renter: {type: seq.BOOLEAN, require: true, defaultValue: false,
-                    validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
+                    validate: {isIn: [['0', '1']], isInt: true}
         },
         rentee: {type: seq.BOOLEAN, require: true, defaultValue: false,
-                    validate: {isIn: [['0', '1']], isInt: true, allowNull: false}
+                    validate: {isIn: [['0', '1']], isInt: true}
         },
     },
     {
